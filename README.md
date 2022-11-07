@@ -1,3 +1,3 @@
 # Appunti-Universitari
-All my university notes :D
+All my uni notes :D
 
