@@ -28,8 +28,6 @@ Questa repository contiene i miei appunti universitari per la laurea triennale i
 
 - **Cheatsheet Metodi**: Questo file contiene informazioni utili per imparare a risolvere gli esercizi presenti nell'esame di Metodi Algebrici per l'Informatica.
 
-- **PSI_CheatSheet_2C**: Troverai un file con informazioni utili per imparare a risolvere gli esercizi presenti nell'esame sulla seconda parte del corso di Probabilità e Statistica per l'Informatica.
-
 - **PSI_Latex**: Questa cartella contiene un riassunto di Teoria e Pratica in Latex per il corso di Probabilità e Statistica per l'Informatica.
 
 - **Riassunto LC**: Troverai un riassunto del corso di Linguaggi e Computabilità.
