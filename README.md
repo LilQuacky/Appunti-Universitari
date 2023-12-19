@@ -1,49 +1,55 @@
-# Appunti Universitari - Laurea Triennale in Informatica
+# University Notes - Bachelor's Degree in Computer Science
 
-Questa repository contiene i miei appunti universitari per la laurea triennale in Informatica. 
+This repository contains my university notes for the Bachelor's degree in Computer Science. For each course, I will provide a rating from 1 to 10 stars on how useful I think my notes will be for passing the exam and the general quality of them.
 
-## Primo Anno
+## First Year
 
-- **Architettura degli Elaboratori**: Questa cartella contiene vari file, tra cui documenti e note, relativi al corso di Architettura degli Elaboratori.
+- **Computer Architecture**: This folder contains various files, including documents and notes, related to the Computer Architecture course. <br> ★★★★★☆☆☆☆☆
 
-- **Algebra Lineare e Geometria**: Troverai un riassunto del corso di Algebra Lineare e Geometria.
+- **Linear Algebra and Geometry**: You will find a summary of the Linear Algebra and Geometry course. <br> ★★☆☆☆☆☆☆☆☆
 
-- **Algoritmi e Strutture Dati**: Qui puoi trovare un riassunto completo del corso di Algoritmi e Strutture Dati.
+- **Algorithms and Data Structures**: Here you can find a summary of the Algorithms and Data Structures course. <br> ★★☆☆☆☆☆☆☆☆
 
-- **Analisi Matematica**: Gli appunti presenti in questa cartella riguardano il corso di Analisi Matematica.
+- **Mathematical Analysis**: The notes in this folder cover the Mathematical Analysis course. <br> ★☆☆☆☆☆☆☆☆☆
 
-- **Fondamenti dell'Informatica**: Troverai gli appunti presi a lezione per il corso di Fondamenti dell'Informatica.
+- **Fundamentals of Computer Science**: You will find the lecture notes for the Fundamentals of Computer Science course.  <br>  ★☆☆☆☆☆☆☆☆☆
 
-- **Programmazione 1**: Questa cartella contiene gli appunti relativi al corso di Programmazione 1.
+- **Programming 1**: This folder contains notes related to the Programming 1 course. <br>  ★★★★☆☆☆☆☆☆
 
-- **Programmazione 2**: Qui puoi trovare gli appunti del corso di Programmazione 2.
+- **Programming 2**: Here you can find notes for the Programming 2 course. <br> ★★★★☆☆☆☆☆☆
 
-## Secondo Anno
+## Second Year
 
-- **Analisi e Progettazione del Software**: Troverai un riassunto del corso di Analisi e Progettazione del Software.
+- **Software Analysis and Design**: You will find a summary of the Software Analysis and Design course. <br> ★★★★☆☆☆☆☆☆
 
-- **Sistemi Distribuiti**: Gli appunti presenti in questa cartella riguardano il corso di Sistemi Distribuiti.
+- **Distributed Systems**: The notes in this folder are related to the Distributed Systems course. <br> ★★★☆☆☆☆☆☆☆
 
-- **Basi di Dati**: Qui puoi trovare un riassunto del corso di Basi di Dati.
+- **Databases**: Here you can find a summary of the Databases course. <br> ★★☆☆☆☆☆☆☆☆
 
-- **Cheatsheet Metodi**: Questo file contiene informazioni utili per imparare a risolvere gli esercizi presenti nell'esame di Metodi Algebrici per l'Informatica.
+- **Methods Cheatsheet**: This file contains useful information to learn how to solve exercises in the Methods of Algebra for Computer Science exam. <br> ★★★★★★★★☆☆
 
-- **PSI_Latex**: Questa cartella contiene un riassunto di Teoria e Pratica in Latex per il corso di Probabilità e Statistica per l'Informatica.
+- **PSI_Latex**: This folder contains a summary of Theory and Practice in Latex for the Probability and Statistics for Computer Science course. <br> ★★★★★★★★☆☆
 
-- **Riassunto LC**: Troverai un riassunto del corso di Linguaggi e Computabilità.
+- **LC Summary**: You will find a summary of the Languages and Computability course. <br> ★★★★☆☆☆☆☆☆
 
-- **Riassunto LP**: Questa cartella contiene un riassunto del corso di Linguaggi di Programmazione.
+- **LP Summary**: This folder contains a summary of the Programming Languages course. <br> ★★★★☆☆☆☆☆☆
 
-- **Riassunto RSO**: Qui puoi trovare un riassunto del corso di Reti e Sistemi Operativi.
+- **RSO Summary**: Here you can find a summary of the Networks and Operating Systems course. <br> ★★☆☆☆☆☆☆☆☆
 
-## Terzo Anno
+## Third Year
 
-Coming Soon...
+- **Analysis and Design of Algorithms** : Contains notes taken via video lessons <br> ★★★★☆☆☆☆☆☆
 
-## Osservazioni
+- **Elements of Bioinformatics**: Contains notes taken in class <br> ★★★★☆☆☆☆☆☆
 
-La maggior parte dei file presenti nella repository è stata pensata per uso personale. Tuttavia, ho deciso di condividerli perché potrebbero risultare utili anche ad altri studenti. Ti invito a fare una pull request se trovi errori o vuoi contribuire all'aggiornamento dei contenuti.
+- **Mobile Device Programming**: Contains notes taken via video lessons <br> ★☆☆☆☆☆☆☆☆☆
 
-Auguro a tutti un buon studio e spero che questi appunti siano di aiuto nella vostra esperienza universitaria!
+- **Introduction to Artificial Intelligence**: Contains notes taken via video lessons <br> ★★★★☆☆☆☆☆☆
 
+- **Operational Research and Resource Planning**: Contains notes taken via video lessons <br> ★★★★☆☆☆☆☆☆
 
+## Observations
+
+Most of the files in the repository were initially intended for personal use. However, I have decided to share them because they might be helpful to other students. Feel free to make a pull request if you find errors or want to contribute to updating the content.
+
+I wish everyone happy studying, and I hope these notes are helpful in your university experience!
