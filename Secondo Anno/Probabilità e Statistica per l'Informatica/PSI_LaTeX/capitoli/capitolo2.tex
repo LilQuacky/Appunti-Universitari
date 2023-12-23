@@ -1,0 +1,211 @@
+\renewcommand{\labelitemi}{\textsc{\labelitemiv}}
+
+\chapter[Spazi di Probabilità]{Spazi di Probabilità}
+
+\section{Introduzione}
+
+Il \textbf{calcolo delle probabilità} è una teoria matematica che permette di descrivere gli \textit{esperimenti aleatori}, ovvero fenomeni il cui esito non è prevedibile con certezza a priori.
+
+\section{Assiomi della Probabilità}
+
+\subsubsection{Spazio Campionario, Evento, Probabilità}
+
+La descrizione matematica di esperimento aleatorio si descrive in 3 passi:
+\begin{enumerate}
+    \item \textbf{Spazio Campionario}: Insieme $\Omega$ che contiene tutti i possibili esiti dell'esperimento. 
+    \item \textbf{Eventi}: Affermazioni sull'esito dell'esperimento aleatorio. $A \subseteq \Omega$. 
+    \item \textbf{Probabilità}: Funzione P che associa a ogni evento $A \subseteq \Omega$ un valore $\in [0, 1]$ che soddisfa opportune proprietà. Ci sono almeno due interpretazioni su che cos'è P(A):
+        \begin{itemize}
+            \item \textbf{Soggettivista}: P(A) = prezzo equo di una scommessa che paga 1 se si verifica A, altrimenti 0.
+            \item \textbf{Frequentista}: P(A) = frazione asintotica di volte in cui si verifica A ripetendo l'esperimento.
+        \end{itemize}
+\end{enumerate}
+\newpage
+\noindent In ogni caso la probabilità deve soddisfare due proprietà:
+    \begin{itemize}
+        \item $P(\Omega)=1$
+        \item Se A e B sono eventi disgiunti, cioè $ A \cap B = \emptyset $, allora: $$P(A \cup B) = P(A) + P(B) $$
+    \end{itemize}
+
+
+ \begin{tcolorbox}
+     \textbf{Esempio}: Se prendiamo in considerazione un dado a sei facce, avremo:
+        \begin{itemize}
+            \item Spazio Campionario: $\Omega = \{1,2,3,4,5,6\}$
+            \item Evento: A = esce un numero pari = \{2,4,6\}
+            \item Probabilità di A= 0.5 = 50\%
+        \end{itemize}
+ \end{tcolorbox}
+
+\noindent La coppia $(\Omega, P)$ è detta \textbf{spazio di probabilità}. \newline
+
+\noindent Indichiamo con $|A|$ la cardinalità di un insieme A. La \textbf{probabilità uniforme} su un insieme finito $\Omega$ si definisce come: $$P(A) := \dfrac{|A|}{|\Omega|}$$ Abbiamo dunque che per ogni $w \in \Omega$, $\mathit{P({w}) = \dfrac{1}{|\Omega|}}$
+
+\subsubsection{Proprietà di base}
+
+Fissiamo uno spazio di probabilità $(\Omega, P)$. Valgono le seguenti proprietà:
+\begin{enumerate}
+    \item \textbf{Insieme Vuoto}: $P(\emptyset)=0$
+    \item \textbf{Regola del complementare}: $P(A^C)= 1 - P(A)$
+    \item \textbf{Regola dell'addizione di probabilità}: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+    \item \textbf{Monotonia}: se $ A \subseteq B $ allora $ P(A) \leq P(B) $
+\end{enumerate}
+
+%\begin{tcolorbox}
+%   \textbf{Esercizio}: Utilizzo della regola del complementare. Qual è la probabilità di ottenere almeno un 6 lanciando 8 dadi?
+%    $\Omega$ =$ \{1,2,3,4,5,6\}^8$ \newline
+%    Pongo A="esce almeno un 6", e trovo che $A^C$="non esce nessun 6" \newline
+%    Non so ancora calcolare A, però posso calcolare $A^C=\{1,2,3,4,5\}^8$ e quindi con la formula della probabilità uniforme ricavo $P(A^C)$= $\dfrac{5^8}{6^8}$. \newline
+%    Ora utilizzo la regola del complementare e trovo che $P(A)$=$ 1 - (\dfrac{5}{6})^8 \simeq 77\% $
+%\end{tcolorbox}
+
+\newpage
+\section{Calcolo Combinatorio}
+
+In uno spazio di probabilità uniforme, calcolare una probabilità significa contare gli elementi di un insieme.  Contare è un problema non banale per insiemi grandi. Le tecniche di conteggio formano il \textbf{Calcolo combinatorio}.\newline
+
+\noindent \textbf{Principio fondamentale}: Consideriamo un esperimento costituito da due parti:
+\begin{enumerate}
+    \item prima parte: n esiti possibili
+    \item seconda parte: m esiti possibili
+\end{enumerate}
+Allora l'esperimento totale può avere $\mathit{n \cdot m}$ esiti possibili. \newline
+
+\begin{tcolorbox}
+    \textbf{Esempio}: Se lancio due dadi a 6 facce ho $\Omega = 6^2 = 36$ esiti possibili, se lancio tre dadi a 6 facce ho $\Omega = 6^3 = 216$ esiti possibili ecc.
+\end{tcolorbox} 
+
+\subsection{Disposizioni con Ripetizione}
+
+Le \textbf{disposizioni con ripetizioni} sono sequenze ordinate di k elementi, \textit{anche ripetuti}, scelti tra n possibili. Sono in numero $$n^k$$ 
+
+\begin{tcolorbox}
+    \textbf{Esempio}: Estraggo casualmente k persone: qual è la probabilità che siano nate tutte e k in primavera? \newline
+    $ |\Omega| = 365^k$ \newline
+    A = "Tutti nati in primavera " = "20 marzo - 20 giugno" = 92 giorni \newline
+    $|A| = 92^k$ \newline
+    P(A) = $(\dfrac{92}{365})^k \simeq \dfrac{1}{4^k} $ \newline
+\end{tcolorbox} 
+    
+
+\subsection{Disposizioni Semplici}
+
+Le \textbf{disposizioni semplici} sono sequenze ordinate di k elementi \textbf{distinti} scelti tra n possibili. Sono in numero $$\dfrac{n!}{(n-k)!}$$ 
+
+\noindent \textbf{Osservazione}: Se n=k si parla di permutazioni, in questo caso sono in numero n! \newline
+
+\begin{tcolorbox}
+    \textbf{Esempio}: Estraggo casualmente k persone: qual è la probabilità che almeno due abbiano lo stesso compleanno? \newline
+    $|\Omega| = 365^k$ \newline
+    A = "almeno due persone hanno lo stesso compleanno" \newline
+    $A^C$ = "tutti hanno compleanni distinti" \newline
+    $P(A^C) = 365 \cdot 364 \cdots (365 - k + 1)$ \newline
+    $P(A) = 1 - P(A^C) = 1 - \dfrac{|A^C|}{|\Omega|} = 1 - \dfrac{365 \cdot 364 \cdots (365 - k + 1) }{365^k} = 1 - \dfrac{365}{365} \cdot \dfrac{364}{365} \cdots \dfrac{(365 - k+1)}{365}$
+    \begin{itemize}
+        \item con K=10 persone avremo il 12\% di trovare due persone con lo stesso compleanno.
+        \item con K=23 persone avremo il 50\% di trovare due persone con lo stesso compleanno.
+        \item con K=50 persone avremo il 97\% di trovare due persone con lo stesso compleanno.
+    \end{itemize}
+\end{tcolorbox} 
+    
+
+\subsection{Combinazioni}
+
+Fino ad ora abbiamo considerato l'ordine importante. Ad esempio, nel lancio di due dadi, (2,5) $\not=$ (5,2). Le combinazioni si possono ottenere dalle disposizioni semplici dimenticando l'ordine degli elementi.
+
+\noindent Le \textbf{combinazioni} sono collezioni \textit{non ordinate} di k elementi distinti scelti tra n possibili. Sono in numero $$ \binom{n}{k} = \dfrac{n!}{ k!( n-k)!}$$ 
+
+\begin{tcolorbox}
+    \textbf{Esempio}: In una mano a Poker un giocatore riceve 5 carte su un mazzo di 52. Le possibili combinazioni sono quindi $$\binom{52}{5} = \dfrac{52!}{5! \cdot 47!} = 2.598.960$$
+\end{tcolorbox} 
+
+%\noindent \textbf{Osservazione}: Indichiamo con $\alpha$ il numero di disposizioni con ripetizione, con $\beta$ il numero di disposizioni semplici, con $\gamma$ il numero di combinazioni di k elementi estratti da un determinato insieme che ne contiene n. Avremo $$ \alpha \geq \beta \geq \gamma$$
+
+\section{Probabilità Condizionata}
+
+Consideriamo uno spazio di probabilità $(\Omega, P)$. Consideriamo un evento $A \subseteq \Omega $ con probabilità P(A). Supponiamo di ricevere informazioni su un evento B che si è verificato. \newline
+La \textbf{probabilità condizionata} è l'aggiornamento della probabilità di A dopo un \textit{informazione aggiuntiva}. la probabilità condizionata di A dato B si scrive come $$ P(A | B) := \dfrac{P(A \cap B)}{P(B)}$$
+
+\begin{tcolorbox}
+    \textbf{Esempio}: Qual è la probabilità che la somma di due dadi a 6 facce valga 4, sapendo che il primo dado vale 2? \newline
+    $|\Omega| = 6^2 = 36 $ \newline
+    A = "la somma vale 4" = {(1,3) (2,2) (3,1)}, $|A|$ = 3 \newline
+    B = "il primo vale 2" = {(2,1), (2,2), (2,3), (2,4), (2,5), (2,6)}, $|B|$ = 6 \newline
+    $$P(A | B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{\dfrac{|A \cap B|}{|\Omega|}}{\dfrac{|B|}{|\Omega|}} = \dfrac{|A \cap B|}{|B|} = \dfrac{1}{6} \simeq 16,7\% $$
+\end{tcolorbox} 
+
+\subsubsection{Proprietà}
+
+\begin{itemize}
+    \item \textbf{Regola del prodotto}: $P(A \cap B) = P(B) \cdot P(A | B)$
+    \item \textbf{Formula di disintegrazione}: $P(A) = P(A \cap B) + P(A \cap B^C)$
+    \item \textbf{Formula delle probabilità totali}: $P(A) = P(A | B) \cdot P(B) + P(A | B^C) \cdot P(B^C)$
+    \item \textbf{Secondo elemento fissato}: $P(* | B)$ è una probabilità: $P(A^C | B) = 1 - P(A | B)$
+    \item \textbf{Formula di Bayes}: $P(B | A) = \dfrac{P(A | B) \cdot P(B)}{P(A)}$
+\end{itemize}
+
+\begin{tcolorbox}
+    \textbf{Esempio}: Per rilevare la presenza di un virus viene effettuato un test con le seguenti caratteristiche: 
+    \begin{itemize}
+        \item Sensibilità: se il virus è presente, il test dà esito positivo al 99\%
+        \item Specificità: se il virus è assente, il test dà esito negativo al 99.7\%
+        \item Prevalenza: è noto che 4 persone su 1000 hanno il virus.
+    \end{itemize}
+    Estraendo un cittadino a caso, qual è la probabilità che l'esito sia positivo? E qual è la probabilità che abbia effettivamente il virus se l'esito è positivo? \newline
+    Introduciamo gli eventi e le relative probabilità:
+    \begin{itemize}
+        \item A: "il test dà esito positivo"
+        \item B: "l'individuo ha il virus"
+        \item $P(A | B)= 0.99$
+        \item $P(A^C | B^C) = 0.997$
+        \item $P(B) = 0.004$
+    \end{itemize}
+    Dai seguenti valori ricaviamo che:
+    \begin{itemize}
+        \item $P(A | B^C) = 1 - P(A^C | B^C) = 1 - 0.997 = 0.003 $
+        \item $P(B^C) = 1 - P(B) = 1 - 0.004 = 0.996$
+    \end{itemize}
+    Ora possiamo usare la formula delle probabilità totali per trovare P(A), ovvero la probabilità che il test sia positivo: $$P(A) = P(A | B) \cdot P(B) + P(A | B^C) \cdot P(B^C) \simeq 0,004 + 0,003 = 0.007 $$
+    Adesso vogliamo sapere $P(B | A)$, ovvero la probabilità che abbia effettivamente il virus se risulta positivo al test, e per farlo usiamo la Formula di Bayes: $$P(B | A) = \dfrac{P(A | B) \cdot P(B)}{P(A)} = \dfrac{0.99 \cdot 0.004 }{0.007} \simeq 57\%$$
+\end{tcolorbox} 
+    
+\section{Indipendenza di eventi}
+
+Due eventi sono \textbf{indipendenti} se al verificarsi di uno, la probabilità che si verifichi l'altro non cambia: $$P(A) = P(A | B) = \dfrac{P(A \cap B)}{P(B)}$$
+
+\begin{tcolorbox}
+    \textbf{Esempio}: Consideriamo \newline A = "il primo dado vale 2" e C = "somma = 7" e D = "somma = 4". \newline
+    \noindent A = $\{(2,1),(2,2),(2,3),(2,4),(2,5),(2,6)\}$ $|A|=6$ $P(A) = \sfrac{1}{6}$ \newline
+    C = $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$ $|C|=6$ $P(C) = \sfrac{1}{6}$ \newline
+    D = $\{(1,3),(2,2),(3,1)\}$ $|D| = 3$ $P(D) = \sfrac{1}{12}$ \newline
+    
+    $ A \cap C = \{(2,5)\}$  $|A \cap C| =1$ $P(A \cap C) = \sfrac{1}{36} $ \newline
+    Dato che $P(A \cap C) = P(A) \cdot P(C)$ A e C sono indipendenti \newline
+   
+    $ A \cap D = \{(2,2)\}$  $|A \cap D| =1$ $P(A \cap C) = \sfrac{1}{36} $ \newline
+    Dato che $P(A \cap D) \not= P(A) \cdot P(D)$ A e C sono dipendenti \newline
+\end{tcolorbox} 
+
+\noindent \textbf{Osservazione}: Se A e B sono indipendenti, lo sono anche A e $B^c$, $A^c$ e B, $A^c$ e $B^c$
+
+\noindent \textbf{Osservazione}: Eventi indipendenti $\not=$ eventi disgiunti! Due eventi indipendenti non possono essere disgiunti.
+
+\begin{comment}
+\begin{tcolorbox}
+   \textbf{Esempio}: Siano A,B eventi indipendenti, ossia $P(A \cap B)=P(A) \cdot P(B)$ entrambi con probabilità 12. Qual è la probabilità di $A \cup B? $\newline
+    Possiamo calcolare la probabilità dell'unione di due eventi A e B utilizzando la formula delle probabilità totali: $$P(A \cup B) = P(A) + P(B) - P(A \capB)$$ Dato che A e B sono eventi indipendenti, possiamo sostituire P(A $\cap$ B) con P(A) $\cdot$ P(B): $P(A \cup B) = P(A) + P(B) - P(A) \cdot P(B)$. \newline
+    Poiché P(A) = P(B) = $\dfrac{1}{2}$, sostituendo nella formula, otteniamo: $$ P(A \cup B) = \dfrac{1}{2} + \dfrac{1}{2} - \dfrac{1}{2} \cdot \dfrac{1}{2} = \dfrac{3}{4} $$
+\end{tcolorbox}
+\end{comment}
+
+\subsubsection{Estensioni}
+
+Tre eventi A,B,C si dicono indipendenti se valgono \textit{tutte} le seguenti regole:
+\begin{itemize}
+    \item $P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C)$
+    \item $P(A \cap B) = P(A) \cdot P(B)$
+    \item $P(A \cap C) = P(A) \cdot P(C)$
+    \item $P(B \cap C) = P(B) \cdot P(C)$
+\end{itemize}
+
+

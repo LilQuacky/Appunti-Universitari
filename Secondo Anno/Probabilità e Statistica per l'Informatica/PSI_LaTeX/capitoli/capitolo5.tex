@@ -1,0 +1,198 @@
+\chapter{Statistica Inferenziale}
+
+\section{Teoria}
+
+\subsection{Introduzione}
+
+\textbf{Definizione}: La \textit{statistica inferenziale} consente di dedurre particolari caratteristiche di una popolazione limitandosi ad analizzare un numero finito e preferibilmente piccolo di suoi individui. \n
+
+\ind \textbf{Definizione}: Quando le caratteristiche che si vogliono individuare sono esprimibili numericamente allora esse sono dette \textit{parametri}. \n
+
+\ind \textbf{Definizione}: Per \textit{stima di parametri} si intende quindi il problema della deduzione di parametri di una popolazione facendo ricorso all’analisi di un suo
+sottoinsieme finito opportunamente scelto, detto \textit{campione}. \n
+
+\ind \textbf{Osservazione}: Diverse tecniche possono essere utilizzate per effettuare delle stime di parametri. Noi ci limiteremo a considerare quelle classiche basate sulla conoscenza delle \textit{distribuzioni campionarie}. \n
+
+\ind \textbf{Definizione}: Diverse ragioni possono portare a voler determinare le caratteristiche di una popolazione facendo ricorso esclusivamente ad un numero limitato di suoi individui: tempo, costo, disponibilità ecc. In questi casi occorre allora effettuare un \textit{campionamento}, ovvero una scelta degli individui che verranno analizzati per effettuare le inferenze sull’intera popolazione. \n
+
+\ind \textbf{Osservazione}: Tutte le tecniche che verranno presentate in questo capitolo sono valide solo nel caso in cui il campione sia stato scelto secondo una procedura detta \textit{campionamento casuale}. \n
+
+\ind \textbf{Definizione}: Denotiamo con X il \textit{carattere} della popolazione su cui siamo interessati a fare dell’inferenza. Penseremo ad X come ad una \textit{variabile aleatoria} la cui \textit{distribuzione sconosciuta} corrisponde a quella che si otterrebbe facendo ricorso alle tecniche della statistica descrittiva sull'intera popolazione, e pensare invece ai valori assunti dai singoli individui come a delle \textit{realizzazioni} di X. In forma matematica:
+\begin{itemize}
+    \item Campione casuale di numerosità n $(X_1, X_2, ..., X_n)$ : è una n-pla di v.a indipendenti aventi ognuna la stessa distribuzione del carattere X della popolazione. 
+    \item I valori $(x_1, x_2, ..., x_n) $ assunti dalla n-pla sono una realizzazione di $(X_1, X_2, ..., X_n)$.
+\end{itemize}
+
+\subsection{Stime Puntuali}
+
+\textbf{Definizione}: Possiamo pensare al carattere della popolazione su cui vogliamo fare delle inferenze come ad una variabile aleatoria X, avente una \textit{funzione di ripartizione F sconosciuta}, ma corrispondente alla distribuzione di frequenza cumulata di tale carattere, che si potrebbe ottenere se fosse possibile analizzare per intero la popolazione. \n
+
+\ind \textbf{Definizione}: Una \textit{stima} è una realizzazione di una statistica campionaria. \n
+
+\ind \textbf{Osservazione}: Per le prossime definizioni denoteremo con $\mu$ il valore atteso e con $\sigma^2$ la varianza della popolazione X con distribuzione F incognita. \n
+
+\ind \textbf{Definizione}: Uno stimatore si dice \textit{non distorto} se il loro valore atteso è uguale al valore medio che vogliamo stimare: $$E[T]_{\Theta} = E[g(\suc)]_{\Theta} = \Theta$$ Questa proprietà non è stabile a trasformazioni non lineari. Uno stimatore non distorto si dice \textit{consistente} quando ha varianza che tende a 0 con N grande. \n
+
+\ind \textbf{Definizione}: Considerato un campione $(X_1, X_2, ..., X_n)$ estratto da una popolazione X, con distribuzione F, media $\mu$ e varianza $\sigma^2$ incognite. Definiamo \textit{media campionaria} la variabile: $$\mc : \frac{X_1 + X_2 + ... + X_n}{n}$$ Questo stimatore è non distorto in quanto $E[\mc]=\mu$. \n
+
+\ind \textbf{Definizione}: Considerato un campione $(X_1, X_2, ..., X_n)$ estratto da una popolazione X, con distribuzione F, media $\mu$ e varianza $\sigma^2$ incognite. Definiamo \textit{varianza campionaria} la variabile: $$\sn = \dfrac{1}{n} \sum_{i=1}^n(X_i - \mc) $$ Questo stimatore è non distorto in quanto $E[\sn]=\sigma^2$. \n
+
+\ind \textbf{Definizione}: Considerato un campione $(X_1, X_2, ..., X_n)$ estratto da una popolazione X, con distribuzione F, media $\mu=E[X_i]$ nota e varianza $\sigma^2$ incognita. Definiamo \textit{varianza campionaria} la variabile: $$\sn = \dfrac{1}{n} \sum_{i=1}^n(X_i - \mu) $$ Questo stimatore è non distorto in quanto $E[\overline{\sn}]=\sigma^2$. \n
+
+\subsection{Distribuzione delle Statistiche Campionarie}
+
+\ind \textbf{Definizione}: Prendiamo una v.a. i.i.d $Z \sim N(\mu, \sigma^2)$ e $\alpha \in (0,1)$. Si definisce $z_{\alpha} $ quel valore tale che $$\pP(Z > z_{\alpha}) =\alpha$$ 
+
+\ind \textbf{Osservazione}: Vale anche $z_{\alpha} = - z_{1 - \alpha}$ \n
+
+\ind \textbf{Definizione}: Siano $Z_1, ..., Z_n \sim N(0,1)$. Allora introduciamo  Y come una distribuzione \textit{chi quadrato con n gradi di libertà} tale che  $$Y=\sum_{i=1}^n Z_i^2 \sim \chiqm$$
+
+\ind \textbf{Definizione}: Per $\alpha$ si pone $x^2_{n, \alpha}$ quel valore tale che: $$\pP (Y > x^2_{n, \alpha}) = \alpha$$
+
+\ind \textbf{Osservazioni}:
+\begin{itemize}
+    \item si ha $E[Y]=n, Var[Y]= 2n$ 
+    \item per n = 2 è la legge di $exp(\sfrac{1}{2})$
+    \item per n grande vale l'approssimazione della legge con una $N(n, 2n)$
+\end{itemize}
+
+\ind \textbf{Definizione}: Sia $\mc$ un campione casuale estratto da una popolazione $N(\mu, \sigma^2)$:
+\begin{enumerate}
+    \item $\dsum_{i=1}^n \left( \dfrac{x_i - \mu}{\sigma} \right)^2 \sim \chiqm$
+    \item $\dsum_{i=1}^n \left( \dfrac{x_i - \mc}{\sigma} \right)^2 \sim \chiqmn$
+    \item se $\sn = \dfrac{1}{n-1} \dsum_{i=1}^n \left( \dfrac{X_i - \mc}{\sigma} \right) ^2$ allora $(n -1) \dfrac{\sn}{\sigma^2} \sim \chiqmn$
+\end{enumerate}
+
+\ind \textbf{Osservazione}: Osservando i punti 1) e 2), posiamo notare che ogni volta che stimiamo un parametro con chi quadrato, perdiamo un grado di libertà \n
+
+\ind \textbf{Definizione}: Siano $Z \sim N (0, 1), Y \sim \chiqm$ indipendenti, definiamo T come una distribuzione \textit{ t di Student con n gradi di libertà} come: $$T= \dfrac{Z}{\sqrt{\sfrac{ Y}{n}}} \qquad T \sim t(n)$$
+
+\ind \textbf{Definizione}: Per $\alpha$ si pone $t_{n, \alpha}$ quel valore tale che: $$\pP (T > t_{n, \alpha}) = \alpha$$
+
+\ind \textbf{Osservazione}: T è simmetrica rispetto a 0. Quindi $t_{\alpha, n} = t_{1 - \alpha, n}$
+
+\subsection{Stima per Intervalli}
+
+Abbiamo visto come trovare un valore approssimato di un parametro incognito della popolazione per mezzo di una stima puntuale. Tali stime però non forniscono informazioni sul grado di approssimazione delle stesse. Per questo motivo alle stime puntuali vengono preferite quando possibile determinarle le \textit{stime per intervalli} che sono stime espresse sotto forma di \textit{intervalli fiduciari} all’interno dei quali con buona probabilità si trova il valore vero del parametro da stimare. \n
+
+\ind \textbf{Definizione}: Definiamo $\alpha \in [0,1]$ come \textit{livello di confidenza} della stima ed il corrispondente intervallo è detto \textit{intervallo di confidenza}. Spesso $\alpha$ assume come valori 0.1, 0.05 e 0.01 . \n
+
+
+\ind \textbf{Definizione}: La \textit{stima intervallare della media} di un campione estratto da una popolazione normale con \textit{media incognita e varianza nota pari a $\sigma^2$} ha come intervallo di confidenza: $$IC =  \left( \overline{x_n} - z_{\sfrac{\alpha}{2}} \dfrac{\sigma}{\sqrt{n}}, \overline{x_n} + z_{\sfrac{\alpha}{2}} \dfrac{\sigma}{\sqrt{n}} \right) $$
+
+\ind \textbf{Osservazione}: L'ampiezza dell'intervallo è due volte l'errore, ovvero lo scarto dal valore centrato. Nell'esempio di stima della media con media incognita e varianza nota, l'ampiezza è: $$2 z_{\sfrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}}$$
+
+
+\ind \textbf{Osservazione}: La bontà della stima dipende dal livello di confidenza: maggiore è, più affidabile è la stima; ma all'aumentar di quest'ultimo, aumenta l'ampiezza dell'intervallo e quindi meno precisa sarà la stima. \n
+
+\ind \textbf{Definizione}: La \textit{stima intervallare della media} di un campione estratto da una popolazione normale con \textit{media e varianza incognita} utilizza la t di Student con n-1 gradi di libertà. Ha come intervallo di confidenza: $$IC =  \left( \overline{x_n} - t_{n-1,\frac{\alpha}{2}} \dfrac{s_n}{\sqrt{n}}, \overline{x_n} + t_{n-1,\frac{\alpha}{2}} \dfrac{s_n}{\sqrt{n}}\right) $$
+
+\ind \textbf{Definizione}: La stima proporzione-frequenza di una popolazione \textit{Bernoulliana} con media e varianza incognite, valida se $n\overline{x_n} > 5$ e $n(1 - \overline{x_n}) >5$ ha come intervallo di confidenza: $$IC = \left(\overline{x_n} - z_{\sfrac{\alpha}{2}} \sqrt{\dfrac{\overline{x_n}(1 -\overline{x_n})}{n}}, \overline{x_n} + z_{\sfrac{\alpha}{2}} \sqrt{\dfrac{\overline{x_n}(1 -\overline{x_n})}{n}} \right) \qquad \overline{x_n}(1 -\overline{x_n}) \leq \dfrac{1}{4}$$
+
+\ind \textbf{Definizione}: Stima intervallare della \textit{varianza} su un campione estratto da una popolazione normale con media e varianza incognite è: $$IC =  \left( \dfrac{(n-1) s_n^2}{ \chi_{n-1, \sfrac{\alpha}{2}}}, \dfrac{(n-1) s_n^2}{ \chi_{n-1, \sfrac{ 1 - \alpha}{2}}} \right)$$
+
+\ind \textbf{Definizione}: Stima intervallare della \textit{varianza} su un campione estratto da una popolazione normale con media nota e varianza incognita utilizza una $\chi$ con n-1 gradi di libertà ed è: $$IC = \left( \dfrac{n \overline{s_n^2}}{ \chi_{n, \sfrac{\alpha}{2}}}, \dfrac{n \overline{s_n^2}}{ \chi_{n, \sfrac{ 1 - \alpha}{2}}} \right)$$
+\pagebreak 
+
+\section{Pratica}
+
+\subsection{Esercizi}
+
+\subsubsection{Esercizio 1: Intervalli di Confidenza, Stime Media}
+
+\textbf{Traccia}: La concentrazione di PCB nel latte materno ha approssimativamente una distribuzione Normale con media $\mu$ e varianza $\sigma^2$ entrambe incognite. Si misura un campione di 20 individui, ottenendo $\overline{x_n}=5.8$ e $s_n=5.085$
+\begin{enumerate}
+    \item IC per $\mu$ a livello 95\%
+    \item IC per $\mu$ a livello 99\%
+    %\item Come cambia il punto 1. se abbiamo varianza nota pari a 25?
+\end{enumerate}
+
+\ind \textbf{Soluzione punto 1}: 
+\begin{enumerate}
+    \item \textit{Trovo la formula da usare}: sono nel caso di media e varianza incognite e voglio trovare l'intervallo di $\mu$, controllo nel formulario delle stime per intervalli e trovo: $$ IC = \left( \mc - t_{n-1,\frac{\alpha}{2}} \dfrac{s_n}{\sqrt{n}}, \mc + t_{n-1,\frac{\alpha}{2}} \dfrac{s_n}{\sqrt{n}}\right) $$
+    \item \textit{Calcolo $\alpha$}: Abbiamo $100(1 - \alpha)\% = 95\%$. Trovo $\alpha=0.05$
+    \item \textit{Riscrivo i miei dati}: Ho $n=20$, $\overline{x_n}=5.8$, $s_n=5.085$, $\alpha=0.05$. Riguardando la formula mi manca conoscere $\frac{\alpha}{2}=0.025$
+    \item \textit{Uso la tavola di t di Student}: Incrocio $n-1=19$ e $\frac{\alpha}{2}=0.025$ e trovo 2.093
+    \item \textit{Riscrivo la formula}: $$IC = \left( 5.8 - 2.093 \frac{5.085}{\sqrt{20}}, 5.8 + 2.093 \frac{5.085}{\sqrt{20}} \right) \simeq (3.12 , 8.18)$$
+    \item \textit{Conclusione}: L'intervallo di confidenza per $\mu$ a livello 95\% è $(3.12 , 8.18)$ 
+\end{enumerate}
+
+\ind \textbf{Soluzione punto 2}: 
+\begin{enumerate}
+    \item \textit{Trovo la formula da usare}: Sono nello stesso caso di prima in quanto cambia solo il livello di confidenza $$ IC = \left( \mc - t_{n-1,\frac{\alpha}{2}} \dfrac{s_n}{\sqrt{n}}, \mc + t_{n-1,\frac{\alpha}{2}} \dfrac{s_n}{\sqrt{n}}\right) $$
+    \item \textit{Calcolo $\alpha$}: A differenza del precedente punto, adesso ho un livello di 99\% quindi $100(1 - \alpha)\% = 99\%$. Trovo $\alpha=0.01$
+    \item \textit{Riscrivo i miei dati}: Ho $n=20$, $\overline{x_n}=5.8$, $s_n=5.085$, $\alpha=0.01$. Riguardando la formula mi manca conoscere $\frac{\alpha}{2}=0.005$
+    \item \textit{Uso la tavola di t di Student}: Incrocio $n-1=19$ e $\frac{\alpha}{2}=0.005$ e trovo 2.861
+    \item \textit{Riscrivo la formula}: $$IC = \left( 5.8 - 2.861 \frac{5.085}{\sqrt{20}}, 5.8 + 2.861 \frac{5.085}{\sqrt{20}} \right) \simeq (2.55 , 9.05)$$
+    \item \textit{Conclusione}: L'intervallo di confidenza per $\mu$ a livello 95\% è $(2.55 , 9.05)$
+\end{enumerate}
+
+%\ind \textbf{Soluzione punto 3}:
+%\begin{enumerate}
+ %   \item \textit{Trovo la formula da usare}: Adesso siamo nel caso in cui media è incognita ma la varianza è nota ed è pari a 25. La formula da usare sarà: $$ IC = \left( \overline{x_n} - z_{\sfrac{\alpha}{2}} \dfrac{\sigma}{\sqrt{n}}, \overline{x_n} + z_{\sfrac{\alpha}{2}} \dfrac{\sigma}{\sqrt{n}} \right) $$
+ %   \item \textit{Uso la tavola della Normale}: Trovo con la tavola della Normale che $z_{\sfrac{\alpha}{2}}=z_{0.025}$ e quindi devo trovare $\pP(Z \leq z_{0.025})= 1 - 0.025 = 0.975$ Trovo quindi $z_{0.025}=1.96$
+  %% \item \textit{Conclusione}: Con varianza nota pari a 25, l'intervallo è aumentato.
+%\end{enumerate}
+
+\subsubsection{Esercizio 2: Intervalli di Confidenza, Stime Proporzioni}
+
+\textbf{Traccia}: Voglio stimare la proporzione di donne tra gli insegnanti della scuola secondaria. Su un campione di 1000 insegnanti ci sono 518 donne.
+\begin{enumerate}
+    \item Stima puntuale della popolazione tramite uno stimatore non distorto
+    \item IC al 95\% della proporzione
+    \item IC al 99\% la cui ampiezza non sia maggiore di 0.03. Quanto dovrebbe essere numeroso il campione?
+\end{enumerate}
+
+\ind \textbf{Soluzione Punto 1}: Siamo nel caso campione numero estratto da una popolazione Bernoulliana Be(p) con p incognito e quindi media e varianza incognite. Uno stimatore non distorto di una Be(p) è la media p. Dunque la stima puntuale richiesta è $ \overline{x_n} = \sfrac{518}{1000}= 0.518$ \n 
+
+\ind \textbf{Soluzione Punto 2}:
+\begin{enumerate}
+    \item \textit{Trovo la formula da usare}: Dal formulario, $$IC = \left(\overline{x_n} - z_{\sfrac{\alpha}{2}} \sqrt{\dfrac{\overline{x_n}(1 -\overline{x_n})}{n}}, \overline{x_n} + z_{\sfrac{\alpha}{2}} \sqrt{\dfrac{\overline{x_n}(1 -\overline{x_n})}{n}} \right)$$
+    \item \textit{Trovo $\alpha$}: $z_{\sfrac{\alpha}{2}} $ è il $100(1 - \sfrac{\alpha}{2})$esimo percentile quindi $\alpha=0.05$ e $\sfrac{\alpha}{2}=0.025$
+    \item \textit{Tavola Gaussiana}: A differenza della t Student, non troviamo la coda, ma la fdr. Quindi dobbiamo trovare $P( Z \leq z_{0.025}) = 1 - 0.025 = 0.975$ e quindi trovo che $z_{0.025}=1.96$
+    \item \textit{Riscrivo la formula}: $$IC= \left( 0.518 - 1.96 \sqrt{\dfrac{0.518(1-0.518)}{1000}}, 0.518 + 1.96 \sqrt{\dfrac{0.518(1-0.518)}{1000}} \right)$$  $$\simeq (0.487, 0.549)$$
+    \item \textit{Conclusione}: L'intervallo di confidenza per la proporzione a livello 95\% è $(0.487, 0.549)$
+\end{enumerate}
+
+\ind \textbf{Soluzione Punto 3}:
+\begin{enumerate}
+    \item \textit{Formula Ampiezza}: L'ampiezza di un IC per definizione è 2 volte lo scarto:  $$2 z_{\sfrac{\alpha}{2}} \sqrt{\dfrac{\overline{x_n}(1 -\overline{x_n})}{n}}$$ 
+    \item \textit{Ricavare i dati}: Non conosciamo $\overline{x_n}(1 -\overline{x_n})$, ma è sicuramente $\leq \sfrac{1}{4}$ (vedi da formulario). La formula diventa $$2 z_{\sfrac{\alpha}{2}} \sqrt{\dfrac{\sfrac{1}{4}}{n}} = z_{\sfrac{\alpha}{2}} \frac{1}{\sqrt{n}} $$
+    \item \textit{Tavola Gaussiana}: Dato $\sfrac{\alpha}{2}=0.005$ devo trovare nella tavola $0.995$ e lo incastro tra i valori $(2.57, 2.58)$ quindi $z_{0.005}=2.575$
+    \item \textit{Riscrivo la formula}: $$ 2.575 \frac{1}{\sqrt{n}} \leq 0.03 \xrightarrow{} \sqrt{n} \geq \dfrac{2.575}{0.03} \xrightarrow{} n \geq 7373.08$$
+    \item \textit{Conclusione}: Per avere IC al 99\% con ampiezza non maggiore di 0.03 ho bisogno di 7374 professori
+\end{enumerate}
+
+\subsubsection{Esercizio 3: Intervalli di Confidenza, Stime Varianza}
+
+\textbf{Traccia}: Si considera il campione  
+\begin{center}
+    1.75 2.25 1.9 2.3 2.1 1.7
+\end{center}
+proveniente da una legge normale con media e varianza incognite.
+\begin{enumerate}
+    \item Stima puntuale della varianza usando stimatore non distorto
+    \item IC al 99\% per $\sigma^2$
+    \item Come cambiano le risposte se $\mu$ è nota pari a 2
+\end{enumerate}
+
+\ind \textbf{Soluzione Punto 1}: Stimatore non distorto di $\sigma^2$ con media e varianza incognite è $$s_n^2= \dfrac{1}{n-1} \sum_{i=1}^n (x_i - \overline{x_n})^2$$ Conosco n=6, $\overline{x_n}=2$ e quindi la stima puntuale di $\sigma^2$ è: $$s_n^2 = \frac{1}{5}[(1.75 - 2)^2 + ... + (1.7 - 2)^2] = 0.065$$
+
+\ind \textbf{Soluzione Punto 2}:
+\begin{enumerate}
+    \item \textit{Trovo la formula da usare}: Stima intervallare della varianza con media e varianza incognita utilizza una $\chi$ con n-1 gradi di libertà ed è: $$IC =  \left( \dfrac{(n-1) s_n^2}{ \chi_{n-1, \sfrac{\alpha}{2}}}, \dfrac{(n-1) s_n^2}{ \chi_{n-1, \sfrac{ 1 - \alpha}{2}}} \right)$$
+    \item \textit{Calcoliamo e Usiamo la Tavola del chi quadro}: Abbiamo $\alpha=0.01$ e quindi cerchiamo $\chi^2_{5, 0.005}$ e $\chi^2_{5, 0.995}$ e trovo rispettivamente 16.75 e 0.412
+    \item \textit{Riscrivo la formula}: $$IC = \left( \dfrac{5 \cdot 0.065}{16.75}, \dfrac{5 \cdot 0.065}{0.412} \right) \simeq (0.019 , 0.79)$$
+\end{enumerate}
+
+\ind \textbf{Soluzione Punto 3}:
+\begin{enumerate}
+    \item \textit{Trovo lo stimatore non distorto}: Stimatore di $\sigma^2$ incognito conoscendo $\mu=2$ è $\overline{s_n^2}= \frac{1}{n} \sum_{i=1}^2 (x_i - \mu)^2 = 0.054$
+    \item \textit{Trovo la formula da usare}: Stima intervallare varianza con media nota e varianza incognita è: $$IC = \left( \dfrac{n \overline{s_n^2}}{ \chi_{n, \sfrac{\alpha}{2}}}, \dfrac{n \overline{s_n^2}}{ \chi_{n, \sfrac{ 1 - \alpha}{2}}} \right)$$
+    \item \textit{Calcoliamo e Usiamo la Tavola del chi quadro}: $\alpha=0.01$ e cerchiamo $\chi_{6, 0.005}$ e $\chi_{6, 0.995}$ e trovo rispettivamente 18.548 e 0.676
+    \item \textit{Riscrivo la formula}: $$IC = \left( \dfrac{6 \cdot 0.054}{18.548}, \dfrac{6 \cdot 0.054}{0.676} \right) \simeq (0.017 , 0.479)$$
+\end{enumerate}
+
+
+
+

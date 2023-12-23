@@ -1,0 +1,191 @@
+\newcommand{\abs}[1]{\left|#1\right|}
+
+\chapter{Verifica di Ipotesi}
+
+\section{Teoria}
+
+\subsection{Test di Ipotesi}
+
+\textbf{Definizione}: Un’affermazione relativa ad una caratteristica di una popolazione è detta \textit{ipotesi statistica} quando essa viene formulata sulla base dell’esperienza o sulla base di considerazioni teoriche. \n
+
+\ind \textbf{Osservazione}: Il problema di un ipotesi è la \textit{verifica} della validità di un'ipotesi statistica. Per effettuare tali verifiche si utilizzano procedure statistiche dette \textit{test di ipotesi} e si dividono in:
+\begin{itemize}
+    \item \textit{test parametrici}: si riferiscono ad ipotesi relative a parametri di distribuzione della popolazione (media e varianza)
+    \item \textit{test non parametrici}: si riferiscono al tipo di distribuzione ipotizzabile per la popolazione non esprimibili come parametri
+\end{itemize}
+
+\ind \textbf{Definizioni}: Ogni test di ipotesi è caratterizzato da:
+\begin{itemize}
+    \item una \textit{popolazione statistica X} sulla quale viene effettuata il test
+    \item un'\textit{ipotesi nulla $H_0$} da convalidare o rifiutare sulla base dei valori assunti da un campione $(\suc)$ estratto da X
+    \item un'\textit{ipotesi alternativa $H_1$} da considerare valida quando si rifiuta $H_0$
+    \item una \textit{statistica campionaria $T=T(\suc)$} di cui è nota la distribuzione quando $H_0$ è vera
+    \item una \textit{regione di accettazione $\overline{C}$} che è l'insieme di valori assumibili dalla statistica T che portano ad un'accettazione dell'ipotesi $H_0$
+    \item una \textit{regione critica C} che è l'insieme di valori assumibili dalla statistica T che portano ad un rifiuto dell'ipotesi $H_0$
+    \item un \textit{livello di significatività $\alpha$} che permette di individuare la regione di accettazione, tale che se $H_0$ vero allora T assume valori nella regione critica con probabilità $\alpha$
+\end{itemize}
+
+\ind \textbf{Definizione}: Se $(\suc) \in C$, ossia si rifiuta $H_0$, diremo che i dati sperimentali sono in \textbf{contraddizione significativa} con $H_0$. Altrimenti i dati non sono in contraddizione significativa con $H_0$ \n
+
+\ind \textbf{Osservazione}: La regione si chiama critica perché è improbabile che $H_0$ sia vera quando la statistica campionaria assume valori appartenenti ad essa ma non possiamo comunque escluderlo. \n 
+
+
+\ind \textbf{Definizione}: Nei test di ipotesi si possono commettere due tipi di errori:
+\begin{enumerate}
+    \item \textit{Errore di prima specie}: si rifiuta $H_0$ quando è vera. Coincide con il livello di significatività $\alpha$
+    \item \textit{Errore di seconda specie}: si accetta $H_0$ quando è falsa. In genere non è nota la probabilità $\beta$
+\end{enumerate}
+
+\ind \textbf{Definizione} La procedura per la formulazione di un test di ipotesi solitamente prevede nell'ordine:
+\begin{enumerate}
+    \item Individuazione dell'ipotesi nulla $H_0$ e dell'ipotesi alternativa $H_1$
+    \item La scelta del livello di significatività $\alpha$
+    \item La scelta della statistica campionaria $T$ 
+    \item La determinazione delle regioni di accettazione $\overline{C}$ e critica $C$
+    \item L'accettazione o il rifiuto dell'ipotesi nulla $H_0$
+\end{enumerate}
+
+\ind \textbf{Definizione}: Una statistica è detta \textit{semplice} se il sottoinsieme di valori che essa assegna ad un parametro è costituito da un solo elemento, altrimenti è detta \textit{composta}. Considerando $\mu$ il parametro incognito, un esempio di statistica semplice è $H_0: \mu=x$ mentre le composte sono nella forma $H_0: \mu \in (x, y) \quad H_0: \mu > x $ \n
+
+\ind \textbf{Definizione}: L'appartenenza di $\suc \in \overline{C}$ dipende dal livello di significatività $\alpha$. Esiste un valore $\overline{\alpha}$ detto \textit{p-value} tel test t.c. :
+\begin{itemize}
+    \item per $\alpha > \overline{\alpha}$ si rifiuta $H_0$
+    \item per $\alpha \leq \overline{\alpha}$ si accetta $H_0$
+\end{itemize}
+
+\ind \textbf{Osservazione}: Più piccolo è il p-value, più i dati sono in contraddizione con $H_0$ \n 
+
+\ind \textbf{Definizione}: Un test statistico è detto \textit{bidirezionale} se la regione critica è costituita dall'unione di due sottoinsieme disgiunti mentre diremo che è \textit{unidirezionale} se è costituita da un solo sottoinsieme. Negli esempi del punto precedente, i primi due sono bidirezionali, mentre il terzo è unidirezionale. \n
+
+\subsection{Considerazioni sugli errori}
+
+Nel descrivere le caratteristiche di un test di ipotesi la probabilità di compiere errori di II specie va pensata come una funzione anziché come uno specifico valore numerico \n
+
+\ind \textbf{Definizione}: Sia $\Theta$ il parametro a cui si riferisce il test e sia $\Theta^*$ il valore specificato dall'ipotesi nulla. Denotiamo l'errore di II specie come $$\beta(\hat{\Theta})=\pP( \text{accettare } H_0 | H_0 \text{ è falsa e } \Theta=\Theta^*)$$ allora viene detta \textit{curva di potenza del test} la funzione $$\pi(\hat{\Theta}) = 1 - \beta(\hat{\Theta})$$ Un test risulta tanto migliore quanto più la funzione $\pi(\hat{\Theta})$ si avvicina ad 1 al variare di $\hat{\Theta}$ \n 
+
+\ind \textbf{Osservazione}: Se nella costruzione di un test si desidera diminuire il livello di significatività $\alpha$ (errori di I specie) si può ampliarne la regione di accettazione $\overline{C}$. In questo modo però è facile osservare che diminuisce anche la potenza del test $\pi(\hat{\Theta})$,ovvero aumenta la probabilità di compiere errori di II specie. \n
+
+\subsection{Test sulla Media di una Popolazione}
+
+Vediamo come si costruisce un test sulla media $\mu$ di una popolazione $X$ quando si formula l’ipotesi nulla che tale media sia un valore fissato: $H_0: \mu = \mu_0$ e quando si dispone di un campione casuale $(\suc)$ estratto da $X$. Vediamo tre distribuzioni per la media, una normale con varianza nota, una normale con varianza incognita e una non normale. \n
+
+\ind \textbf{Popolazione normalmente distribuita e varianza $\sigma^2$ nota}: Sia $\mu$ il valore del parametro. Avremo che $$Z = \dfrac{\overline{X_n} - \mu}{\sfrac{\sigma}{\sqrt{n}}} \sim N(0,1)$$ Z non è una statistica in quanto $\mu$ non è noto. Allora $$Z_n = \dfrac{\overline{X_n} - \mu_0}{\sfrac{\sigma}{\sqrt{n}}} \sim N(0,1)$$ è una statistica essendo $\mu_0$ fissata. Il test rifiuta $H_0$ se $Z_n$ assume valori poco probabili per una $N(0,1)$. Avremo 3 ipotesi alternative:
+\begin{enumerate}
+    \item $H_1^{'}: \mu \neq \mu_0$
+    \item $H_1^{''}: \mu < \mu_0$: in tal caso $\mu_0$ è una sovrastima della media per cui $Z_n$ tende ad assumere valori negativi $Z_n < Z \sim N(0,1)$
+    \item $H_1^{'''}: \mu > \mu_0$: in tal caso $\mu_0$ è una sottostima della media per cui $Z_n$ tende ad assumere valori positivi essendo $Z_n > Z \sim N(0,1)$
+\end{enumerate}
+La regione critica risulta essere 
+\begin{enumerate}
+    \item $C^{'}= (-\infty, -z_{1 - \sfrac{\alpha}{2}}) \cup (z_{1 - \sfrac{\alpha}{2}}, +\infty)$
+    \item $C^{''} = (-\infty, -z_{1 - \alpha})$
+    \item $C^{'''} = (z_{1 - \alpha}, +\infty) $
+\end{enumerate}
+
+\ind {\color{gray} \textbf{Osservazione}: Nel formulario, ci sono 3 ipotesi nulle $$H_0 = \mu_0 \quad H_0 \geq \mu_0 \quad H_0 \leq \mu_0$$ invece che la singola $H_0 = \mu_0$} \n
+
+
+\ind \textbf{Popolazione normalmente distribuita e varianza $\sigma^2$ incognita}: Si procede come nell'esempio precedente, ma essendo varianza incognita useremo la t di Student. \n
+
+\ind \textbf{Popolazione non normalmente distribuita}: Per poter definire un test occorre avere un campione di numerosità sufficientemente elevata $(n \geq 30)$ e deve valere $np_0 \geq 5$ e $n(1 - p_0) \geq 5$ Allora, possiamo ricondurci ad una normale con varianza nota. 
+
+%\subsection{Test sulla Varianza di una Popolazione}
+
+%Mettiamoci nello stesso caso di prima ma invece della media avremo la varianza incognita. Allora avremo $$Q_n = \dfrac{(n-1) \hat{S_n^2}}{\sigma^2_0} \sim \chi^2_{n-1}$$ Rifiuteremo $H_0$ se $Q_n$ assume valori poco probabili per una Chi-quadro con n-1 gradi di libertà. 
+
+\subsection{Test sulla Differenza delle Medie di due Popolazioni}
+
+Molti problemi in statistica consistono nel confronto tra 2 variabili, come 2 popolazioni. Vediamo due test, uno sulla differenza di media di due campioni normali accoppiati, ed uno sulla differenza di media di due campioni normali indipendenti. \n
+
+\ind \textbf{Differenza Campioni Accoppiati}: Prendiamo due campioni della stessa numerosità $(\suc)_x \quad (Y_1, ..., Y_n)_y$. Supponiamo essi siano normali, quindi con  valore medio $\mu_x$ e $\mu_y$. Definiamo una differenza $D_i = X_i - Y_i$ e denotiamo con $\overline{D_n}$ la media campionaria e con $S_d^2$ la varianza campionaria del campione $D_1, ..., D_n$ Allora troviamo la statistica come: $$T = \dfrac{\overline{D_n} - \mu_0}{S_d} \sqrt{n}$$ Di conseguenza posso trovare le  tre sezioni critiche. {\color{gray}(non le riporto, sono presenti nella tabella)} \n
+
+\ind \textbf{Differenza Campioni Indipendenti}: Prendiamo due campioni della stessa numerosità $(\suc)_x \quad (Y_1, ..., Y_n)_y$. Supponiamo essi siano normali, quindi con  valore medio $\mu_x$ e $\mu_y$. Siano $\overline{X}$ e $S_x^2$ media e varianza campionaria di $(\suc)_x$ e siano $\overline{Y}$ e $S_y^2$ media e varianza campionaria di $(Y_1, ..., Y_n)_y$. 
+Possiamo calcolare la varianza campionaria combinata come $$S_p^2 = \dfrac{(n_x - 1)S_x^2 + (n_y - 1)S_y^2}{n_x + n_y -2}$$ Allora ottengo la mia statistica come: $$T = \dfrac{\overline{X} \overline{Y}}{S_p \sqrt{\frac{1}{n_x}\frac{1}{n_y}}}$$ Di conseguenza posso trovare le  tre sezioni critiche. {\color{gray}(non le riporto, sono presenti nel formulario)} \n
+
+\ind {\color{gray} La parte sui test non parametrici e in particolare del test chi-quadro di buon adattamento è trattata nel prossimo capitolo per questioni di parallelismo teoria-esercitazione}
+\newpage
+
+\section{Pratica}
+
+\subsection{Esercizi}
+
+\subsubsection{Esercizio 1: Test z per popolazione gaussiana, varianza nota }
+
+\textbf{Traccia}: Azienda produce anelli. Il diametro di questi anelli è normalmente distribuito ed ha una deviazione standard pari a $\sigma=0.001 mm$. Campione di n=15 anelli, si ricava $\overline{x} = 74.036 mm$
+\begin{enumerate}
+    \item Si testi l'ipotesi che la media del diametro sia uguale a $\mu = 74.035 mm$ ad un livello di significatività pari a $\alpha = 5\%$ e si calcoli il p-value del test.
+    \item Probabilità che a livello $\alpha = 5\%$, l'ipotesi che la media sia $\mu = 74.035 mm$ non venga rifiutata quando il valore della media è $74.034$
+\end{enumerate}
+
+\ind \textbf{Soluzione punto 1}: Essendo il campione normalmente distribuito ed avendo varianza nota troviamo dal formulario il Test z sulla media di una popolazione normale con varianza nota pari a $\sigma^2$
+\begin{enumerate}
+    \item \textit{Scrivo l'ipotesi nulla e l'ipotesi alternativa}: $H_0 : \mu = 74.035$, $H_1 : \mu \neq 74.036$
+    \item \textit{Ricavo dalla tabella la regione critica e la calcolo}: Regione critica $\overline{C}$ del test a livello $\alpha$: $$ \abs{ \dfrac{\overline{x_n - \mu }}{\sigma} \sqrt{n}} > z_{\sfrac{\alpha}{2}} \xrightarrow{} \abs{\dfrac{74.036 - 74.035}{0.001} \sqrt{15}} \simeq 3.873 > z_{\sfrac{\alpha}{2}}$$
+    \item \textit{Confronto con il percentile della gaussiana}: $\alpha = 0.05 \xrightarrow{} z_{0.025}$ quindi cerco sulle tavole della normale 0.975 e trovo $z_{0.025} = 1.96$
+    \item \textit{Confronto}: Dopo aver calcolato regione critica e percentile della gaussiana ottengo $ 3.873 > 1.96$. Essendo questo vero, rifiuto $H_0$ a livello 5\%. I dati mi permettono di dimostrate statisticamente $H_1$
+    \item \textit{Formula p-value}: Calcolo $\overline{\alpha}$, ovvero la probabilità che la regione critica sia esattamente il percentile della gaussiana, ma $\overline{\alpha}$ è incognita: $\overline{C}$ del test a livello $\alpha$: $$ \abs{ \dfrac{\overline{x_n - \mu }}{\sigma} \sqrt{n}} = z_{\sfrac{\overline{\alpha}}{2}} \xrightarrow{} 3.873 = z_{\sfrac{\overline{\alpha}}{2}}$$ 
+    \item \textit{Calcolo p-value}: Per trovare il valore di $\overline{\alpha}$ uso la fdr della gaussiana standard: $$\Phi(3.873) = \Phi(z_{\sfrac{\overline{\alpha}}{2}}) \xrightarrow{} \Phi(3.873) = 1 - z_{\sfrac{\overline{\alpha}}{2}} \xrightarrow{} \overline{\alpha} = 2(1 - \Phi(3.873)) \xrightarrow{} \overline{\alpha} \simeq 0$$
+    \item \textit{Conclusione}: Più il p-value è piccolo, più i dati sono in forte contraddizione con $H_0$.
+\end{enumerate}
+
+\ind \textbf{Soluzione punto 2}:  Stiamo lavorando con un errore di II specie: "accetto $H_0$ quando è falsa"
+\begin{enumerate}
+    \item \textit{Formula statistica}: Ricavo dalla tabella la formula $$\pP_{\mu = 74.034}= \left( {\abs{ \dfrac{\overline{x_n - \mu }}{\sigma} \sqrt{n}} > z_{\sfrac{\alpha}{2}}} \right) = \left( {\abs{ \dfrac{\overline{x_{15}} - 74.035 }{0.001} \sqrt{15}}} > 1.96 \right) $$
+    \item \textit{Riscrivere come normale standard}: Essendo sotto ipotesi che $\mu \neq \overline{x_n}$ il nostro corpo della probabilità non è approssimabile come una $N(0,1)$. Aggiungo allora (+ 0.001 - 0.001): $$ \left(-1.96 \leq \dfrac{\overline{x_{15}} - 74.035 + 0.001 - 0.001}{0.001} \sqrt{15} \leq 1.96 \right)$$
+    \item \textit{Faccio i calcoli}: $$\left(-1.96 \leq \dfrac{\overline{x_{15}} - 74.034}{0.001} \sqrt{15} - \dfrac{0.001}{0.001}\sqrt{15} \leq 1.96 \right) = $$ $$ = \left(-1.96 \sqrt{15} \leq \dfrac{\overline{x_{15}} - 74.034}{0.001} \sqrt{15} \leq 1.96 \sqrt{15} \right) \simeq $$ $$ \simeq \pP(1.91 \leq z \leq 5.83) = \Phi(5.83) - \Phi(1.11) = 0.0281$$
+\end{enumerate}
+
+\ind \textbf{Traccia}: Un produttore di batterie ha messo sul mercato un nuovo modello sostenendo che la durata media è superiore a quella del vecchio modello che era pari a 14 ore. Su un campione di 10 batterie sono state osservate le seguenti durate: $18 \quad 15\quad 14\quad 16\quad 15\quad 12\quad 13\quad 15\quad 17$. Supponendo che il tempo dio durata sia normale:
+\begin{enumerate}
+    \item Sottoporre a verifica l'affermazione de produttore a livello $\alpha=5\%$
+    \item Calcolare il p-value del test
+\end{enumerate}
+
+\ind \textbf{Soluzione punto 1}: Essendo il campione normalmente distribuito ed avendo varianza incognita troviamo dal formulario il Test t sulla media di una popolazione normale con varianza incognita
+\begin{enumerate}
+    \item \textit{Ricavo l'ipotesi nulla e l'ipotesi alternativa}: In questo caso la traccia non specifica direttamente qual'è l'ipotesi nulla. Possiamo scegliere che l'affermazione del produttore sia l'ipotesi alternativa $H_1: \mu > 14$, in quanto se rifiuto $H_0: \mu \leq 14$ posso dire con certezza che il produttore abbia torto. Se avessimo messo l'ipotesi del produttore come ipotesi nulla $H_0$ e la rifiutassimo i dati non ci permetterebbero di escludere che il produttore abbia ragione (conclusione meno forte). 
+    \item \textit{Ricavo dalla tabella la regione critica e la calcolo}: Regione critica $\overline{C}$ del test a livello $\alpha$: $$ \abs{ \dfrac{\overline{x_n - \mu }}{s_n} \sqrt{n}} > t_{n-1, \alpha}$$
+    \item \textit{Trovo i dati e risolvo}: $\alpha = 0.05$, $n = 10$, $\overline{x_n}=\frac{18 + ... + 13}{10}=15$, $s_n = \frac{1}{9}((18-15)^2 + ... + (13 - 15)^2) = 4$, $s_n^2 = \sqrt{4}=2$ dunque la mia regione critica sarà: $$\dfrac{15-14}{2}\sqrt{10} \simeq 1.58 >  t_{n-1, \alpha}$$
+    \item \textit{Confronto con t di Student e conclusioni}: trovo che $t_{9, 0.005}= 1.833$ quindi $1.58 > 1.833$. Essendo questo falso accetto $H_0$ a livello 5\%, ovvero i miei dati non mi permettono di rifiutare $H_0$, ovvero non mi permettono di dimostrare che il produttore ha ragione. I dati non sono in contraddizione significativa con $H_0$
+\end{enumerate}
+
+\ind \textbf{Soluzione punto 2}: P-value, so già che $\overline{\alpha} > 5\%$ dal punto prima, quindi p-value alto. So che $1.58 = t_{9, \alpha}$ quindi cerco i numeri che includono 1.58 e li trovo ai valori $0.05 < \overline{\alpha} < 0.1$ della tabella, ovvero $5\% < \overline{\alpha} < 10\%$ 
+
+\subsubsection{Esercizio 3: Test sulla proporzione}
+
+\ind \textbf{Traccia}: Un'inserzione pubblicitaria per un prodotto contro il mal di testa dichiara che almeno un 90\% delle persone che soffrono di questo disturbo otterrebbe beneficio se lo usasse. L'associazione dei consumatori, considerando tale pubblicità tendenziosa, ottiene un campione di 100 individui di cui 88 dichiarano che il prodotto è stato efficace. Siete d'accordo con l'associazione?
+
+\ind \textbf{Soluzione}: Essendo il campione una proporzione usiamo il Test z sulla proporzione. Le ipotesi $(n \geq 30)$, $np_0 \geq 5$ e $n(1 - p_0) \geq 5$ sono verificate con i nostri dati $p_0 = 0.9$ e $n=100$ quindi posso procedere.
+\begin{enumerate}
+    \item \textit{Trovo ipotesi nulla ed alternativa}: Metto come ipotesi alternativa $H_1 : p < 0.9$ in modo tale che se rifiuto $H_0: p \geq 0.9$ posso dire con certezza che la pubblicità sta mentendo.
+    \item \textit{Scelta di svolgimento}: Per i test sulla proporzione possiamo scegliere se prendere un livello di significatività a piacere oppure trovare il p-value. Facciamo il primo.
+    \item \textit{Trovo Area Critica}: Scelgo $\alpha=0.05$ e la mia area critica usando il formulario è $$\dfrac{\overline{x_n} - p_0}{\sqrt{p_0(1 - p_0}}\sqrt{n} < - z_{\alpha} \xrightarrow{} \dfrac{0.88 - 0.9}{\sqrt{0.9 (1 - 0.1)}}\sqrt{100} < - 1.645 $$
+    \item \textit{Conclusioni}: Ottengo $- 0.667 < -1.645$ che è falso quindi accetto $H_0$ a livello 5\% e quindi i dati non sono in contraddizione significativa con $H_0$ e quindi non mi permettono di dimostrare statisticamente che la pubblicità sia tendenziosa. Se calcolassi il p-value ottengo 0.2524 quindi p-value grande
+\end{enumerate}
+
+\subsubsection{Esercizio 4: Dati Accoppiati}
+
+\textbf{Traccia}: I dati seguenti mettono in relazione la frequenza cardiaca di 12 individui prima e dopo aver masticato tabacco. Verifica a livello 5\% l'ipotesi che masticare tabacco non provochi un aumento della frequenza cardiaca e calcolare p-value \n
+\begin{tabular}{ |p{3.5cm}|p{3.5cm}|p{3.5cm}|  }
+    \hline
+    \multicolumn{3}{|c|}{Masticare Tabacco} \\
+    \hline
+    Individuo & Frequenza prima & Frequenza Dopo \\
+    \hline
+    1 &  73 & 77\\
+    2 &  67 & 69 \\
+    3 &  68 & 73 \\
+    .. & .. & .. \\
+    12 & 78 & 80 \\
+    \hline
+\end{tabular}
+\break
+
+\ind \textbf{Soluzione}: Usiamo il test t sulla differenza della media di 2 campioni normali accoppiati $\suc$ di media $\mu_x$ e $Y_1, ..., Y_n$ di media $\mu_y$. $D_1 = X_1 - Y_1$, $D_n = X_n - Y_n$, media $\overline{D_n}$, varianza $S_d^2$.
+\begin{enumerate}
+    \item \textit{Scelgo ipotesi nulla ed ipotesi alternativa}: $H_0: \mu_d \leq 0 $, $H_1: \mu_d > 0$ ovvero metto come ipotesi alternativa che ci sia differenza così se rifiuto l'ipotesi nulla posso dire con certezza che c'è differenza tra prima e dopo masticare tabacco.
+    \item \textit{Regione Critica}: Dal formulario: $$ \dfrac{\overline{d_n} - \mu_0}{S_d}\sqrt{n} > t_{n-1, \alpha}$$ 
+    \item \textit{Calcolo i valori}: Prendo i valori $n=12$, $\mu_0 = 0$, $\overline{d_n}= \frac{(77-73) + ... + (80 - 78)}{12}= 3.75$, $s_d^2 = \frac{1}{11}((4 - 3.75)^2 + ... + (2 - 3.75)^2 = 9.477$, $s_d = 3.078$, $t_{11, 0.05} = 1.796$
+    \item \textit{Confrontiamo}: $$\dfrac{3.75 - 0}{3.078}\sqrt{12} = 4.22 > 1.796$$ I dati sono in contraddizione significativa con $H_0$ dimostro statisticamente che masticare tabacco provoca un aumento della frequenza cardiaca.
+    \item \textit{P-value}: $4.22 = t_{11, \overline{\alpha}}$ e trovo $0.0005 < \overline{\alpha} < 0.001$ forte evidenza empirica contro $H_0$ in quanto p-value molto piccolo
+\end{enumerate}

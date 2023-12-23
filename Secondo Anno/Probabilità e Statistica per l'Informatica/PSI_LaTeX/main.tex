@@ -1,0 +1,77 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{centernot}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{titling}
+\usepackage{textcomp}
+\usepackage{pgfplots}
+\usepackage{pdfpages}
+\usepackage{tcolorbox}
+\usepackage{fontawesome}
+\usepackage{xfrac}
+\usepackage{xcolor}
+\usepackage{pagecolor}
+
+\usepackage{hyperref}
+
+
+
+
+\newcommand{\suc}{X_i, ... ,X_n}
+\newcommand{\somsuc}{X_i + ... + X_n}
+\newcommand{\va}{X_i}
+\newcommand{\disc}{P_{X_i}(x)=p(x)}
+\newcommand{\ac}{f_{X_i}(x)=f(x)}
+\newcommand{\ind}{\noindent}
+\newcommand{\n}{\newline}
+\newcommand{\mc}{\overline{{X}_N}}
+\newcommand{\sn}{S_{n}^{2}}
+\newcommand{\xn}{X^2(n)}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\std}{\dfrac{\somsuc - E[X]}{\sqrt{Var[X]}}}
+\newcommand{\pP}{\text{I\kern-0.15em P}}
+\newcommand{\chiqm}{\chi^2(n)}
+\newcommand{\chiqmn}{\chi^2(n-1)}
+
+\usepackage[italian]{babel}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Probabilità e Statistica per l'Informatica}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Ver 1.1
+            
+        \vspace{1.5cm}
+            
+        \textbf{Falbo Andrea}
+            
+        \vfill
+            
+        A.A 2022/2023 \\
+        \faGithub{LilQuacky}
+            
+        \vspace{0.8cm}
+            
+        \includegraphics[width=0.4\textwidth]{Foto/duck-png-20143.png}
+            
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+\input{capitoli/capitoli.tex}
+
+\end{document}
